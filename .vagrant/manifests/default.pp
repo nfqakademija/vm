@@ -92,7 +92,9 @@ php::pear::module { 'PHP_CodeSniffer':
 class { 'apache':
   package => 'apache2-mpm-prefork'
 }
-apache::module { 'php5': }
+apache::module { 'php5': 
+  require => Class["php"]
+}
 apache::vhost { $vhost_name:
   docroot  => $vhost_path
 }

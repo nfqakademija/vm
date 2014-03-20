@@ -17,7 +17,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision :shell, :path => ".vagrant/install.sh"
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = ".vagrant/manifests"
-    puppet.options = ["--verbose", "--debug", "--hiera_config /vagrant/.vagrant/hiera.yaml", "--parser future"]
+    puppet.options = ["--verbose", "--debug", "--hiera_config /vagrant/hiera.yaml", "--parser future"]
     puppet.facter = {
         "ssh_username" => "vagrant",
         "vhost_name" => config.vm.hostname,
